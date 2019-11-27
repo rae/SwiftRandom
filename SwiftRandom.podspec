@@ -12,7 +12,7 @@ s.author           = { "thellimist" => "mufuyil@gmail.com" }
 s.source           = { :git => "https://github.com/thellimist/SwiftRandom.git", :tag => s.version.to_s }
 s.platform     = :ios, '8.0'
 s.requires_arc = true
-s.swift_version = "5.1"
+s.swift_version = "4.2"
 s.source_files = 'SwiftRandom/Randoms.swift'
 
 end
