@@ -9,29 +9,6 @@ import UIKit
 
 // each type has its own random
 
-public extension Bool {
-    /// SwiftRandom extension
-    static func random() -> Bool {
-        return Int.random() % 2 == 0
-    }
-}
-
-public extension Int {
-    /// SwiftRandom extension
-    static func random(_ lower: Int = 0, _ upper: Int = 100) -> Int {
-        return Int.random(in: lower...upper)
-    }
-}
-
-public extension Int32 {
-    /// SwiftRandom extension
-    ///
-    /// - note: Using `Int` as parameter type as we usually just want to write `Int32.random(13, 37)` and not `Int32.random(Int32(13), Int32(37))`
-    static func random(_ lower: Int = 0, _ upper: Int = 100) -> Int32 {
-        return Int32.random(in: Int32(lower)...Int32(upper))
-    }
-}
-
 public extension String {
     /// SwiftRandom extension
     static func random(ofLength length: Int) -> String {
@@ -75,27 +52,6 @@ public extension String {
     }
 }
 
-public extension Double {
-    /// SwiftRandom extension
-    static func random(_ lower: Double = 0, _ upper: Double = 100) -> Double {
-        return Double.random(in: lower...upper)
-    }
-}
-
-public extension Float {
-    /// SwiftRandom extension
-    static func random(_ lower: Float = 0, _ upper: Float = 100) -> Float {
-        return Float.random(in: lower...upper)
-    }
-}
-
-public extension CGFloat {
-    /// SwiftRandom extension
-    static func random(_ lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
-        return CGFloat.random(in: lower...upper)
-    }
-}
-
 public extension Date {
     /// SwiftRandom extension
     static func randomWithinDaysBeforeToday(_ days: Int) -> Date {
@@ -122,10 +78,10 @@ public extension Date {
 public extension UIColor {
     /// SwiftRandom extension
     static func random(_ randomAlpha: Bool = false) -> UIColor {
-        let randomRed = CGFloat.random()
-        let randomGreen = CGFloat.random()
-        let randomBlue = CGFloat.random()
-        let alpha = randomAlpha ? CGFloat.random() : 1.0
+        let randomRed = CGFloat.random(in: 0.0...1.0)
+        let randomGreen = CGFloat.random(in: 0.0...1.0)
+        let randomBlue = CGFloat.random(in: 0.0...1.0)
+        let alpha = randomAlpha ? CGFloat.random(in: 0.0...1.0) : 1.0
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: alpha)
     }
 }
@@ -154,7 +110,7 @@ public struct Randoms {
     }
 
     public static func randomInt(_ lower: Int = 0, _ upper: Int = 100) -> Int {
-        return Int.random(lower, upper)
+        return Int.random(in: lower...upper)
     }
 
     public static func randomInt32(_ range: Range<Int32>) -> Int32 {
@@ -162,7 +118,7 @@ public struct Randoms {
     }
 
     public static func randomInt32(_ lower: Int = 0, _ upper: Int = 100) -> Int32 {
-        return Int32.random(lower, upper)
+        return Int32.random(in: Int32(lower)...Int32(upper))
     }
 
     public static func randomString(ofLength length: Int) -> String {
@@ -182,19 +138,19 @@ public struct Randoms {
     }
     
     public static func randomPercentageisOver(_ percentage: Int) -> Bool {
-        return Int.random() >= percentage
+        return Int.random(in: 0...100) >= percentage
     }
 
     public static func randomDouble(_ lower: Double = 0, _ upper: Double = 100) -> Double {
-        return Double.random(lower, upper)
+        return Double.random(in: lower...upper)
     }
 
     public static func randomFloat(_ lower: Float = 0, _ upper: Float = 100) -> Float {
-        return Float.random(lower, upper)
+        return Float.random(in: lower...upper)
     }
 
     public static func randomCGFloat(_ lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
-        return CGFloat.random(lower, upper)
+        return CGFloat.random(in: lower...upper)
     }
 
     public static func randomDateWithinDaysBeforeToday(_ days: Int) -> Date {
