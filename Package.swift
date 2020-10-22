@@ -9,6 +9,7 @@ let package = Package(
         .library(name: "SwiftRandom", targets: ["SwiftRandom"])
 	],
     targets: [
-        .target(name: "SwiftRandom", dependencies: [])
+        .target(name: "SwiftRandom", dependencies: [], path: "SwiftRandom")
     ]
+	// swiftLanguageVersions: [.v5]
 )
